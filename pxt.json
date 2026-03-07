@@ -1,10 +1,12 @@
 {
-    "name": "More testing",
+    "name": "led/light testing",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "servo": "*",
+        "radio-broadcast": "*"
     },
     "files": [
         "main.blocks",

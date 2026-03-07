@@ -1,3 +1,7 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    basic.showString("" + (receivedNumber))
+})
+let Check_light_level = 0
 led.setBrightness(200)
 led.plot(0, 2)
 basic.pause(100)
@@ -67,8 +71,20 @@ led.unplot(3, 4)
 basic.pause(100)
 led.unplot(4, 4)
 basic.clearScreen()
+let Somethings_working = false
 basic.forever(function () {
+    while (input.buttonIsPressed(Button.A)) {
+        Check_light_level = input.lightLevel()
+        Somethings_working = true
+        led.plotBarGraph(
+        Check_light_level,
+        255
+        )
+        led.setBrightness(Check_light_level)
+        Somethings_working = false
+    }
     while (input.buttonIsPressed(Button.B)) {
+        Somethings_working = true
         if (input.lightLevel() == 69) {
             basic.clearScreen()
             led.setBrightness(200)
@@ -108,22 +124,22 @@ basic.forever(function () {
             led.plot(4, 2)
             led.plot(1, 3)
             led.plot(0, 4)
-            led.plotBrightness(0, 0, 150)
-            led.plotBrightness(1, 0, 150)
-            led.plotBrightness(0, 1, 150)
-            led.plotBrightness(1, 1, 150)
-            led.plotBrightness(2, 1, 150)
-            led.plotBrightness(0, 2, 150)
-            led.plotBrightness(1, 2, 150)
-            led.plotBrightness(3, 2, 150)
-            led.plotBrightness(0, 3, 150)
-            led.plotBrightness(2, 3, 150)
-            led.plotBrightness(3, 3, 150)
-            led.plotBrightness(4, 3, 150)
-            led.plotBrightness(1, 4, 150)
-            led.plotBrightness(2, 4, 150)
-            led.plotBrightness(3, 4, 150)
-            led.plotBrightness(4, 4, 150)
+            led.plotBrightness(0, 0, 50)
+            led.plotBrightness(1, 0, 50)
+            led.plotBrightness(0, 1, 50)
+            led.plotBrightness(1, 1, 50)
+            led.plotBrightness(2, 1, 50)
+            led.plotBrightness(0, 2, 50)
+            led.plotBrightness(1, 2, 50)
+            led.plotBrightness(3, 2, 50)
+            led.plotBrightness(0, 3, 50)
+            led.plotBrightness(2, 3, 50)
+            led.plotBrightness(3, 3, 50)
+            led.plotBrightness(4, 3, 50)
+            led.plotBrightness(1, 4, 50)
+            led.plotBrightness(2, 4, 50)
+            led.plotBrightness(3, 4, 50)
+            led.plotBrightness(4, 4, 50)
         } else if (input.lightLevel() != 0 || input.lightLevel() != 255) {
             basic.clearScreen()
             led.setBrightness(200)
@@ -159,5 +175,9 @@ basic.forever(function () {
                 . # # # .
                 `)
         }
+        Somethings_working = false
     }
+})
+control.inBackground(function () {
+	
 })
